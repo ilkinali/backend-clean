@@ -1,5 +1,8 @@
 [build]
 builder = "NIXPACKS"
 
+[build.nixpacksPlan]
+providers = ["nodejs", "python39"]
+
 [deploy]
 startCommand = "node server.js"
