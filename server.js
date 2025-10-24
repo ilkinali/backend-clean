@@ -1,4 +1,5 @@
-require('dotenv').config();
+// Railway uses env vars directly - dotenv not needed
+// require('dotenv').config();
 const express = require('express');
 const crypto = require('crypto');
 const cors = require('cors');
@@ -141,4 +142,18 @@ app.post('/webhooks/fastspring',
           });
           console.log(`🛑 Premium deactivated for ${email} via ${type}`);
         } else {
-          console.log('
+          console.log('ℹ️ FS event:', type, 'email:', email);
+        }
+      });
+
+      res.status(200).end();
+    } catch (e) {
+      console.error('Webhook handler error:', e);
+      return res.status(400).end();
+    }
+  }
+);
+
+app.listen(PORT, () => {
+  console.log(`✅ Server listening on :${PORT}`);
+});
