@@ -13,6 +13,6 @@
     "google-auth-library": "^9.14.2"
   },
   "engines": {
-    "node": ">=18"
+    "node": "18.x"
   }
 }
